@@ -1,7 +1,7 @@
 {
-  "name": "project-2-boilerplate",
+  "name": "CanineConnections",
   "version": "1.0.0",
-  "description": "Boilerplate for project 2",
+  "description": "Canine Connections project 2",
   "main": "server.js",
   "scripts": {
     "test": "jest",
