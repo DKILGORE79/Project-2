@@ -1,6 +1,5 @@
 * {
-    font-family: 'Josefin Sans', sans-serif;
-    background-image: url(/public/assets/img/bg.png);
+    background-image: url("/public/assets/img/bg.png");
 }
 
 .card {
