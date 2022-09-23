@@ -30,8 +30,8 @@ const sess = {
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize
-  })
+    db: sequelize,
+  }),
 };
 
 app.use(session(sess));
@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 app.use(
   helmet({
-    contentSecurityPolicy: false
+    contentSecurityPolicy: false,
   })
 );
 app.use(morgan('tiny'));
