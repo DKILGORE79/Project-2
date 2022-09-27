@@ -1,8 +1,12 @@
 * {
     font-family: 'Josefin Sans', sans-serif;
-    background-image: url(/public/assets/img/bg.png);
+
 }
 
 .card {
     background-color: rgb(127, 208, 255);
+}
+
+#bgimage {
+    background-image: url("/public/assets/img/bg.png");
 }
