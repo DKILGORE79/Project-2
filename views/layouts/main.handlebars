@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Canine Connection</title>
+  <title>Project 2 Boilerplate</title>
   <link rel="stylesheet" href="/assets/css/reset.css">
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,12 +12,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
-<body>
-  <figure class="image is-full">
-  <img src="/assets/img/bg.png">
-</figure>
 
-  <div class="flex-column justify-space-around #bgimage">
+<body class="bg-img">
+  <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
       <h1>
         <a href="/">Canine Connection</a>
@@ -43,7 +40,7 @@
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
-  <script src="/assets/js/login.js"></script>
+  <script src="/assets/js/logout.js"></script>
   {{/if}}
 </body>
 
