@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequilize');
-const sequilize = require('../config/connection');
+const sequelize = require('../config/connection');
 
 class Breed extends Model {}
 
@@ -28,7 +28,7 @@ Breed.init(
     },
   },
   {
-    sequilize,
+    sequelize,
     timestamps: false,
     freezeTablename: true,
     underscored: true,
