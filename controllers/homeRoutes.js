@@ -1,14 +1,32 @@
 const router = require('express').Router();
+<<<<<<< HEAD
 const { Names } = require('../models');
+=======
+const { getDogBreeds } = require('../utils/dogApi');
+// const { User } = require('../models');
+>>>>>>> 3a0fd0792c04ad05eead99152bdc09b87a24dd3a
 // const withAuth = require('../utils/auth');
 
 router.get('/', async (_req, res) => {
-  try {
-    // Change this to where you app should go
-    res.render('login');
-  } catch (err) {
-    res.status(500).json(err);
+  if (!req.session.logged_in) {
+    // CHANGE THIS TO WHEREVER YOUR PROJECT NEEDS TO GO
+    res.redirect('/login');
+    return;
   }
+
+  try {
+    const response = await getDogBreeds();
+
+    console.log(response.data);
+
+    res.render('homepage', {
+      dogs: response.data,
+    });
+  } catch (error) {
+    console.error(error);
+  }
+
+  res.end();
 });
 
 router.get('/login', (req, res) => {
