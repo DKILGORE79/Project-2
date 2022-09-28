@@ -24,10 +24,10 @@
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/views/layouts/main.handlebars">Homepage</a> |
+        <a href="/members">Homepage</a> |
         <button class="no-button" id="logout">Log out</button>
         {{else}}
-        <a href="/views/login.handlebars">Log in</a>
+        <a href="/login">Log in</a>
         {{/if}}
       </nav>
     </header>

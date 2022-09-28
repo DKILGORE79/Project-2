@@ -4,9 +4,9 @@ const { getDogBreeds } = require('../utils/dogApi');
 // const withAuth = require('../utils/auth');
 
 router.get('/', async (_req, res) => {
-  if (!req.session.logged_in) {
+  if (req.session.logged_in) {
     // CHANGE THIS TO WHEREVER YOUR PROJECT NEEDS TO GO
-    res.redirect('/');
+    res.redirect('/login');
     return;
   }
 
@@ -34,6 +34,28 @@ router.get('/login', (req, res) => {
   }
   res.render('login');
 });
+
+router.get('/signup', (req, res) => {
+
+  if (req.redirect) {
+    // CHANGE THIS TO WHEREVER YOUR PROJECT NEEDS TO GO
+    res.redirect('/signup');
+    return;
+  }
+  res.render('signup');
+});
+
+router.get('/members', (req, res) => {
+
+  if (req.redirect) {
+    // CHANGE THIS TO WHEREVER YOUR PROJECT NEEDS TO GO
+    res.redirect('/members);
+    return;
+  }
+  res.render('members');
+});
+
+
 
 router.get('/names', async (req, res) => {
   const randomId1 = Math.floor(Math.random()*1000+1);
