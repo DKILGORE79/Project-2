@@ -6,7 +6,7 @@ const { getDogBreeds } = require('../utils/dogApi');
 router.get('/', async (_req, res) => {
   if (!req.session.logged_in) {
     // CHANGE THIS TO WHEREVER YOUR PROJECT NEEDS TO GO
-    res.redirect('/login');
+    res.redirect('/');
     return;
   }
 
@@ -15,7 +15,7 @@ router.get('/', async (_req, res) => {
 
     console.log(response.data);
 
-    res.render('homepage', {
+    res.render('members', {
       dogs: response.data,
     });
   } catch (error) {
@@ -29,7 +29,7 @@ router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
     // CHANGE THIS TO WHEREVER YOUR PROJECT NEEDS TO GO
-    res.redirect('/logged_in_hompage');
+    res.redirect('/members');
     return;
   }
   res.render('login');

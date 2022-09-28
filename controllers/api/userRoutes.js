@@ -40,7 +40,7 @@ router.post('/login', async (req, res) => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
       // CHANGE THIS REDIRECT TO WHERE YOU WANT THE USER TO GO
-      res.status(200).redirect('/logged_in_homepage');
+      res.status(200).redirect('/members');
     });
   } catch (err) {
     res.status(400).json(err);
@@ -54,7 +54,7 @@ router.post('/logout', (req, res) => {
     });
   } else {
     // Change this wherever you like
-    res.status(400).redirect('/');
+    res.status(400).redirect('/login');
   }
 });
 
