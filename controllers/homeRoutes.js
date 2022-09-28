@@ -1,10 +1,6 @@
 const router = require('express').Router();
-<<<<<<< HEAD
-const { Names } = require('../models');
-=======
 const { getDogBreeds } = require('../utils/dogApi');
 // const { User } = require('../models');
->>>>>>> 3a0fd0792c04ad05eead99152bdc09b87a24dd3a
 // const withAuth = require('../utils/auth');
 
 router.get('/', async (_req, res) => {

@@ -57,7 +57,7 @@ sequelize.sync({ force: IS_PROD }).then(() => {
 });
 
 //  Random name Generator
-app.set('views', path.join(__dirname, 'views'))
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'handlebars');
 app.set(express.static('public'));
 
