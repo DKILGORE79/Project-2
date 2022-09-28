@@ -28,7 +28,6 @@
     "helmet": "^6.0.0",
     "morgan": "^1.10.0",
     "mysql2": "^2.2.5",
-    "node-random-name": "^1.0.1",
     "sequelize": "^6.3.5"
   },
   "devDependencies": {
