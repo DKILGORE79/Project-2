@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const axios = require('axios').default;
 const { getDogBreeds } = require('../../utils/dogApi');
 router.get('/', async (_req, res) => {
   try {
