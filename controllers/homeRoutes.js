@@ -35,4 +35,43 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/names', async (req, res) => {
+  const randomId1 = Math.floor(Math.random()*1000+1);
+  const randomId2 = Math.floor(Math.random()*1000+1);
+  const randomId3 = Math.floor(Math.random()*1000+1);
+  const randomId4 = Math.floor(Math.random()*1000+1);
+  const nameArray = [];
+  try {
+    const nameData1 = await Names.findOne({
+      where: {
+        id: randomId1,
+      }
+    });
+    const nameData2 = await Names.findOne({
+      where: {
+        id: randomId2,
+      }
+    });
+    const nameData3 = await Names.findOne({
+      where: {
+        id: randomId3,
+      }
+    });
+    const nameData4 = await Names.findOne({
+      where: {
+        id: randomId4,
+      }
+    });
+    nameArray.push(nameData1.dataValues.first_name);
+    nameArray.push(nameData2.dataValues.first_name);
+    nameArray.push(nameData3.dataValues.first_name);
+    nameArray.push(nameData4.dataValues.first_name);
+    res.render('names', {
+      names:nameArray
+    });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 module.exports = router;

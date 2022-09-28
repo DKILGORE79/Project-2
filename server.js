@@ -52,6 +52,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
-sequelize.sync({ force: !IS_PROD }).then(() => {
+sequelize.sync({ force: IS_PROD }).then(() => {
   app.listen(PORT, () => console.log(`Now listening on port: ${PORT}`));
 });
+
+//  Random name Generator
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'handlebars');
+app.set(express.static('public'));
+
+app.listen(3001, () => console.log('App listening...'));
+
+
