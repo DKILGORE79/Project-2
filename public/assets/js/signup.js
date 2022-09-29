@@ -25,33 +25,35 @@ $(document).ready(() => {
       return;
     }
     // If we have an email and password, run the signUpUser function
-    signUpUser(
+    function signUpUser(first_name, last_name, email, password) {
+      $.post('/api/signup', {
+        first_name: first_name,
+        last_name: last_name,
+        email: email,
+        password: password,
+      })
+        .then(() => {
+          window.location.replace('/members');
+          // If there's an error, handle it by throwing up a bootstrap alert
+        })
+        .catch(handleLoginErr);
+    }
+
+    signUpUser (
       userData.first_name,
       userData.last_name,
       userData.email,
       userData.password
-    );
+  };
     firstNameInput.val('');
     lastNameInput.val('');
     emailInput.val('');
     passwordInput.val('');
-  });
+);
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
-  function signUpUser(first_name, last_name, email, password) {
-    $.post('/api/signup', {
-      first_name: first_name,
-      last_name: last_name,
-      email: email,
-      password: password,
-    })
-      .then(() => {
-        window.location.replace('/members');
-        // If there's an error, handle it by throwing up a bootstrap alert
-      })
-      .catch(handleLoginErr);
-  }
+
 
   function handleLoginErr(err) {
     $('#alert .msg').text(err.responseJSON);
