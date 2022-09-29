@@ -1,17 +1,20 @@
 [
-  {
-    "name": "test",
-    "email": "test@email.com",
-    "password": "password12345"
-  },
-  {
-    "name": "test2",
-    "email": "test2@email.com",
-    "password": "password12345"
-  },
-  {
-    "name": "test3",
-    "email": "test3@email.com",
-    "password": "password12345"
-  }
-]
+    {
+      "first_name": "test",
+      "last_name": "testy",
+      "email": "test@email.com",
+      "password": "password12345"
+    },
+    {
+      "first_name": "test2",
+      "last_name": "testy2",
+      "email": "test2@email.com",
+      "password": "password12345"
+    },
+    {
+      "first_name": "test3",
+      "last_name": "testy3",
+      "email": "test3@email.com",
+      "password": "password12345"
+    }
+  ]

@@ -1,0 +1,24 @@
+
+<body>
+  <div class="container ">
+    <div class="row d-flex align-items-center min-vh-100">
+        <div class="col-md-8 col-md-offset-3 mx-auto" id="log-sign">
+        <h1>Welcome, <span class="member-name">{{ first_name }}</span></h1>
+        {{#each dogs}}
+        <div class="card" style="width: 18rem;">
+  <img crossorigin="anonymous" src={{this.image.url}} class="card-img-top" alt="...">
+  <div class="card-body">
+    </h2><h2 class="card-title"> Breed: {{ this.name }}</h2>
+      <h4 class="card-title">Temperament: {{ this.temperament }}</h4>
+      <h4 class="card-title">Height: {{ this.height.imperial }} inches</h4>
+      <h4 class="card-title">Weight: {{ this.weight.imperial }}lbs</h4>
+
+    <h1 class="card-text">{{names}}</h1>
+    <a href="#" class="btn btn-primary">next</a>
+  </div>
+  
+</div>
+{{/each}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/js/members.js"></script>
+</body>

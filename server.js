@@ -8,6 +8,7 @@ const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 
+
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -30,19 +31,20 @@ const sess = {
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize
-  })
+    db: sequelize,
+  }),
 };
 
 app.use(session(sess));
 
 // Inform Express.js on which template engine to use
-app.engine('handlebars', hbs.engine);
+// app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'handlebars');
+app.engine('handlebars', hbs.engine);
 
 app.use(
   helmet({
-    contentSecurityPolicy: false
+    contentSecurityPolicy: false,
   })
 );
 app.use(morgan('tiny'));
@@ -55,3 +57,19 @@ app.use(routes);
 sequelize.sync({ force: !IS_PROD }).then(() => {
   app.listen(PORT, () => console.log(`Now listening on port: ${PORT}`));
 });
+
+
+
+//  Random name Generator
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'handlebars');
+app.set(express.static('public'));
+
+app.use('/random-name', (req, res) => {
+  const { dog_name } = data[Math.round(Math.random() * data.length)];
+  return res.json({ dog_name });
+});
+
+// app.listen(3001, () => console.log('App listening...'));
+
+

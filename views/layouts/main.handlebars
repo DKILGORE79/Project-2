@@ -1,43 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project 2 Boilerplate</title>
-  <link rel="stylesheet" href="/css/reset.css">
-  <link rel="stylesheet" href="/css/style.css">
-</head>
+  <head>
+    <title>Canine Connections</title>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <link
+      rel='stylesheet'
+      href='https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css'
+    />
+    <link
+      href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css'
+      rel='stylesheet'
+      integrity='sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1'
+      crossorigin='anonymous'
+    />
+    <link href='/assets/css/style.css' rel='stylesheet' />
+  </head>
 
-<body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <a href="/">Project 2 Example</a>
-      </h1>
-      <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/">Homepage</a> |
-        <button class="no-button" id="logout">Log out</button>
-        {{else}}
-        <a href="/login">Log in</a>
-        {{/if}}
-      </nav>
-    </header>
-    <main class="container container-fluid mt-5">
-      <!-- Render the sub layout -->
-      {{{ body }}}
-    </main>
-    <footer>
-      
-    </footer>
-  </div>
+  <body class='bg-img'>
+    <div class='flex-column justify-space-around'>
+      <header class='display-flex justify-space-between align-center p-2'>
 
-  <!-- Render script for logged in users only -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
-</body>
+       <nav>
+          <!-- Conditionally render login or logout links -->
+          {{#if logged_in}}
+            <a href='/login'>Homepage</a>
+            |
+            <button class='button' id='logout'>Log out</button>
+          {{else}}
+            <a href='/login'>Login</a>
+          {{/if}}
+        </nav>
+      </header>
+      <main class='container container-fluid mt-5'>
+        <!-- Render the sub layout -->
+        {{{body}}}
+      </main>
+      <footer>
+
+      </footer>
+    </div>
+
+    <!-- Render script for logged in users only -->
+    {{#if logged_in}}
+      <script src='/assets/js/logout.js'></script>
+    {{/if}}
+  </body>
 
 </html>
