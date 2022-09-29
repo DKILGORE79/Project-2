@@ -12,7 +12,7 @@ Names.init(
       autoIncrement: true,
     },
 
-    first_name: {
+    dog_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
