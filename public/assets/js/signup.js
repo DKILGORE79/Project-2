@@ -43,7 +43,7 @@ $(document).ready(() => {
         .catch(handleLoginErr);
     }
 
-    signUpUser (
+    signUpUser(
       userData.first_name,
       userData.last_name,
       userData.email,
