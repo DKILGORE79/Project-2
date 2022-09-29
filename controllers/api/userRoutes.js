@@ -45,7 +45,7 @@ router.post('/login', async (req, res) => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
       // CHANGE THIS REDIRECT TO WHERE YOU WANT THE USER TO GO
-      console.log('====================redirecting members');
+
       res.send('logged in');
     });
   } catch (err) {
