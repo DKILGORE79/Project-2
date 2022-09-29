@@ -1,6 +1,6 @@
 $(document).ready(() => {
   // Getting references to our form and input
-  const signUpForm = $('form.signup');
+  const signUpForm = $('form.signup-form');
   const firstNameInput = $('input#first-name-input');
   const lastNameInput = $('input#last-name-input');
   const emailInput = $('input#email-input');
@@ -24,6 +24,10 @@ $(document).ready(() => {
     ) {
       return;
     }
+    function handleLoginErr(err) {
+      $('#alert .msg').text(err.responseJSON);
+      $('#alert').fadeIn(500);
+    }
     // If we have an email and password, run the signUpUser function
     function signUpUser(first_name, last_name, email, password) {
       $.post('/api/signup', {
@@ -44,19 +48,13 @@ $(document).ready(() => {
       userData.last_name,
       userData.email,
       userData.password
-  };
+    ),
     firstNameInput.val('');
     lastNameInput.val('');
     emailInput.val('');
     passwordInput.val('');
-  );
+  });
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
-
-
-  function handleLoginErr(err) {
-    $('#alert .msg').text(err.responseJSON);
-    $('#alert').fadeIn(500);
-  }
 });
