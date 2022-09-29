@@ -1,9 +1,11 @@
 const router = require('express').Router();
 const { getDogBreeds } = require('../utils/dogApi');
-// const { User } = require('../models');
+const { User } = require('../models');
+const { Names } = require('../models');
 // const withAuth = require('../utils/auth');
 
-router.get('/', async (_req, res) => {
+//=================API to call dog info from thedogAPI.com===========================================
+router.get('/', async (req, res) => {
   if (!req.session.logged_in) {
     // CHANGE THIS TO WHEREVER YOUR PROJECT NEEDS TO GO
     res.redirect('/login');
@@ -15,7 +17,7 @@ router.get('/', async (_req, res) => {
 
     console.log(response.data);
 
-    res.render('homepage', {
+    res.render('members', {
       dogs: response.data,
     });
   } catch (error) {
@@ -24,17 +26,43 @@ router.get('/', async (_req, res) => {
 
   res.end();
 });
+// ==============================================================================================
+router.get('/signup', (req, res) => {
+  if (req.user) {
+    res.render('members');
+  }
+  res.render('signup');
+});
 
 router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    // CHANGE THIS TO WHEREVER YOUR PROJECT NEEDS TO GO
-    res.redirect('/logged_in_hompage');
-    return;
+  if (req.user) {
+    res.render('members');
   }
   res.render('login');
 });
 
+// router.get('/', (req, res) => {
+//   if (req.user) {
+//     res.render('members');
+//   }
+//   res.render('login');
+// });
+
+router.get('/members', async (req, res) => {
+  try {
+    const userData = await User.findOne({
+      where: {id:req.session.user_id},
+    });
+    // console.log(userData);
+    const {data} = await getDogBreeds();
+    const dogs = data.slice(0,10);
+    res.render('members', {first_name: userData.dataValues.first_name, dogs:dogs});
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+// ==================================================================================================
 router.get('/names', async (req, res) => {
   const randomId1 = Math.floor(Math.random()*1000+1);
   const randomId2 = Math.floor(Math.random()*1000+1);
@@ -62,16 +90,25 @@ router.get('/names', async (req, res) => {
         id: randomId4,
       }
     });
-    nameArray.push(nameData1.dataValues.first_name);
-    nameArray.push(nameData2.dataValues.first_name);
-    nameArray.push(nameData3.dataValues.first_name);
-    nameArray.push(nameData4.dataValues.first_name);
+    nameArray.push(nameData1.dataValues.dog_name);
+    nameArray.push(nameData2.dataValues.dog_name);
+    nameArray.push(nameData3.dataValues.dog_name);
+    nameArray.push(nameData4.dataValues.dog_name);
     res.render('names', {
       names:nameArray
     });
   } catch (err) {
     console.log(err);
   }
+});
+
+router.get('/api/breed', (req, res) => {
+  if (req.redirect) {
+    // CHANGE THIS TO WHEREVER YOUR PROJECT NEEDS TO GO
+    res.redirect('/members');
+    return;
+  }
+  res.render('members');
 });
 
 module.exports = router;

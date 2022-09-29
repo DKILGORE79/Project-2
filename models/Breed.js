@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require('sequilize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Breed extends Model {}
@@ -25,6 +25,10 @@ Breed.init(
     life_span: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    img_url: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
   },
   {
