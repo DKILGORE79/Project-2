@@ -36,7 +36,7 @@ const sess = {
 };
 
 app.use(session(sess));
-app.use(cors());
+
 // Inform Express.js on which template engine to use
 // app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'handlebars');
