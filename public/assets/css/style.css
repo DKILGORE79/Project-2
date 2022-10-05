@@ -37,4 +37,12 @@ body {
     background: rgb(255, 255, 255);
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.995) 0%, rgb(38, 148, 199) 100%);
   }
+
+  button {
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.995) 0%, rgb(38, 148, 199) 100%);
+    border-color: rgba(2, 26, 107, 0.562);
+    border-width: 1px;
+    color: black;
+    justify-content: center;
+  }
   
