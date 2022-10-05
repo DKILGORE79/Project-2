@@ -30,7 +30,7 @@ $(document).ready(() => {
     }
     // If we have an email and password, run the signUpUser function
     function signUpUser(first_name, last_name, email, password) {
-      $.post('/api/signup', {
+      $.post('/api/users', {
         first_name: first_name,
         last_name: last_name,
         email: email,

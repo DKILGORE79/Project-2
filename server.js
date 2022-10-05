@@ -38,7 +38,7 @@ const sess = {
 app.use(session(sess));
 
 // Inform Express.js on which template engine to use
-// app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'handlebars');
 app.engine('handlebars', hbs.engine);
 
@@ -61,9 +61,9 @@ sequelize.sync({ force: !IS_PROD }).then(() => {
 
 
 //  Random name Generator
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'handlebars');
-app.set(express.static('public'));
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'handlebars');
+// app.set(express.static('public'));
 
 app.use('/random-name', (req, res) => {
   const { dog_name } = data[Math.round(Math.random() * data.length)];
