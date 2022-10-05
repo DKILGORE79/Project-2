@@ -41,12 +41,12 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-// router.get('/', (req, res) => {
-//   if (req.user) {
-//     res.render('members');
-//   }
-//   res.render('login');
-// });
+router.get('/', (req, res) => {
+  if (req.user) {
+    res.render('members');
+  }
+  res.render('login');
+});
 
 router.get('/members', async (req, res) => {
   try {
@@ -94,7 +94,7 @@ router.get('/names', async (req, res) => {
     nameArray.push(nameData2.dataValues.dog_name);
     nameArray.push(nameData3.dataValues.dog_name);
     nameArray.push(nameData4.dataValues.dog_name);
-    res.render('members', {
+    res.render('names', {
       names:nameArray
     });
   } catch (err) {
