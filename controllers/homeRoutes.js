@@ -94,7 +94,7 @@ router.get('/names', async (req, res) => {
     nameArray.push(nameData2.dataValues.dog_name);
     nameArray.push(nameData3.dataValues.dog_name);
     nameArray.push(nameData4.dataValues.dog_name);
-    res.render('names', {
+    res.render('members', {
       names:nameArray
     });
   } catch (err) {
