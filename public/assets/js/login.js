@@ -15,12 +15,12 @@ const loginFormHandler = async (event) => {
       });
       console.log('request successful');
       document.location.replace('/members');
-      // await fetch('/members');
-      // if (response.ok) {
-      //   // If successful, redirect the browser to the profile page
-      // } else {
-      //   alert(response.statusText);
-      // }
+      await fetch('/members');
+      if (response.ok) {
+        // If successful, redirect the browser to the profile page
+      } else {
+        alert(response.statusText);
+      }
     }
   } catch (error) {
     console.log(error);
