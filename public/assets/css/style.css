@@ -29,13 +29,19 @@ body {
     border-radius: 2em;
     background: rgba(128, 128, 128 , 0.75);
     color: white;
+    margin: auto;
+  }
+
+  h1 {
+    font-weight: 400;
   }
   
   .card {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: auto;
+    margin-bottom: 3%;
     background: rgb(255, 255, 255);
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.995) 0%, rgb(38, 148, 199) 100%);
+    width: 80%;
   }
 
   button {
