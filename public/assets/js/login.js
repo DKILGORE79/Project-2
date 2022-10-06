@@ -15,7 +15,11 @@ const loginFormHandler = async (event) => {
       });
       console.log('request successful');
       document.location.replace('/members');
+<<<<<<< HEAD
  await fetch('/members');
+=======
+      await fetch('/members');
+>>>>>>> f13bd607ffa85dc96c4e30a3b8d6a1dca4b539bc
       if (response.ok) {
         // If successful, redirect the browser to the profile page
       } else {
